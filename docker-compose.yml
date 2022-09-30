@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  rabbitmq:
+      container_name: rabbitmq-worker
+      image: rabbitmq:management-alpine
+      ports:
+        - 5672:5672
+        - 15672:15672
+      volumes:
+        - rabbitmq-data:/var/lib/rabbitmq
+      environment:
+        RABBITMQ_DEFAULT_USER: rabbitmq
+        RABBITMQ_DEFAULT_PASS: rabbitmq
+volumes:
+  rabbitmq-data:
